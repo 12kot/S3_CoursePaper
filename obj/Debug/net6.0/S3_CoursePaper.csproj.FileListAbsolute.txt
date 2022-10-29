@@ -1,0 +1,15 @@
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\bin\Debug\net6.0\S3_CoursePaper.exe
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\bin\Debug\net6.0\S3_CoursePaper.deps.json
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\bin\Debug\net6.0\S3_CoursePaper.runtimeconfig.json
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\bin\Debug\net6.0\S3_CoursePaper.dll
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\bin\Debug\net6.0\ref\S3_CoursePaper.dll
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\bin\Debug\net6.0\S3_CoursePaper.pdb
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.csproj.AssemblyReference.cache
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.AssemblyInfoInputs.cache
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.AssemblyInfo.cs
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.csproj.CoreCompileInputs.cache
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.dll
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\ref\S3_CoursePaper.dll
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.pdb
+C:\Users\User\RiderProjects\S3_CoursePaper\S3_CoursePaper\obj\Debug\net6.0\S3_CoursePaper.genruntimeconfig.cache
