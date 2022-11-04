@@ -2,8 +2,7 @@
 
 public abstract class Animal
 {
-    public string Name { get; set; }
-
+    public string Name { get; }
     public int Population { get; }
     public  int Age { get; }
 
@@ -16,6 +15,6 @@ public abstract class Animal
 
     public override string ToString()
     {
-        return $"{Name, 15}\t{Population, 10}\t{Age, 4}";
+        return $"{Name, 10}\t{Population, 10}\t{Age, 4}";
     }
 }

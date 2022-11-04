@@ -6,72 +6,109 @@ public static class Start
     public static void Main(string[] args)
     {
         List<Animal> animals = new List<Animal>();
+        Animal an = AddAnimal();
         
-        Animal mammal = new Mammal("Жук", 18, 2000);
-        animals.Add(mammal);
-
-        Animal fish = new Fish("Рыба", 20, 1000);
-        animals.Add(fish);
+        if(an != null)
+            animals.Add(an);
         
-        Animal arthropod = new Arthropod("Никита", 1, 18);
-        animals.Add(arthropod);
+        RemoveAnimal(animals); 
+        Display(Search(animals));
         
-        Animal crustacean = new Crustacean("Звезда", 456, 3456789);
-        animals.Add(crustacean);
-        
-        animals.Sort((x, y) => x.Age.CompareTo(y.Age));
-       // animals.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.Ordinal));
-       // animals.Sort((x, y) => x.Population.CompareTo(y.Population));
+       /* animals.Sort((x, y) => x.Age.CompareTo(y.Age));
+        animals.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.Ordinal));
+        animals.Sort((x, y) => x.Population.CompareTo(y.Population));
        
-       //сложный поиск. Поиск по нескольким компонентам ГОТОВО
-       //интерфейс для кого что делает. метод move. Рыба плавает. кто-то ходит. что-то бегает
-       //сложная сортировка. Сортировка по нескольким компонентам
-       
-       Display(Search(animals));
-      // Display(animals);
+       интерфейс для кого что делает. метод move. Рыба плавает. кто-то ходит. что-то бегает
+       сложная сортировка. Сортировка по нескольким компонентам */
     }
-
-    private static string Input()
+    private static void Menu()
     {
-        Console.WriteLine("По каким параметрам будем сортировать?\n" +
-                          "1. Имя.\n" +
-                          "2. Популяция.\n" +
-                          "3. Возраст.\n" +
-                          "4. Класс.\n" +
-                          "5. Тип.\n");
-        
-
-        return Console.ReadLine() ?? "-1";
+        Console.WriteLine("1. Добавить морского обитателя.\n" +
+                          "2. Удалить морского обитателя.\n" +
+                          "3. Вывести список морских обитателей.\n" +
+                          "4. Поиск.\n" +
+                          "5. Лёгкая сортировка.\n" +
+                          "6. Сложная сортировка.\n");
     }
-
-    private static List<Animal> Search(List<Animal> animals)
+    
+    private static Animal AddAnimal()
     {
-        string str;
-        Console.WriteLine("Введите имеющююся информацию через пробел:\n");
+        Console.WriteLine("Выберите тип морского обитателя:\n" +
+                          "Членистоногое/Ракообразное/Млекопитающее/Рыба");
+        string type = Console.ReadLine() ?? "undefined";
         
-        str = Console.ReadLine() ?? "";
+        Console.Write("Введите наименование морского обитаетеля: ");
+        string name = Console.ReadLine() ?? "undefined";
         
-        List<Animal> anS = new List<Animal>();
-        foreach (var animal in animals)
+        Console.Write("Введите популяцию морского обитателя: ");
+        string population = Console.ReadLine() ?? "-1";
+        
+        Console.Write("Введите возраст: ");
+        string age = Console.ReadLine() ?? "-1";
+        
+        Animal animal = null!;
+  
+        switch (type.ToLower())
         {
-            foreach (var s in str.Split(" "))
-            {
-                if(animal.ToString().Contains(s)) 
-                    anS.Add(animal);
-            }
+            case "членистоногое":
+                animal = new Arthropod(name, Int32.Parse(population), Int32.Parse(age));
+                break;
+            case "ракообразное":
+                animal = new Arthropod(name, Int32.Parse(population), Int32.Parse(age));
+                break;
+            case "млекопитающее":
+                animal = new Arthropod(name, Int32.Parse(population), Int32.Parse(age));
+                break;
+            case "рыба":
+                animal = new Arthropod(name, Int32.Parse(population), Int32.Parse(age));
+                break;
+            default:
+                Console.WriteLine("Введён неверный тип. Повторите попытку: ");
+                break;
         }
 
-        return anS;
+        return animal;
+    }
+
+    private static void RemoveAnimal(List<Animal> animals)
+    {
+        Display(animals);
+        
+        if(animals.Count == 0) return;
+        
+        Console.Write("Введите наименование морского обитателя: ");
+        string name = Console.ReadLine() ?? "";
+
+        foreach (var animal in animals.Where(animal => animal.Name.Equals(name)))
+        {
+            animals.Remove(animal);
+            return;
+        }
+        
+        Console.WriteLine("Морские обитатели с заданным наименованием не найдены.");
     }
     
     private static void Display(List<Animal> animals)
+         {
+             if(animals.Count == 0) Console.WriteLine("Животных нет.");
+             
+             foreach (var animal in animals)
+             {
+                 Console.WriteLine(animal);
+             }
+         }
+
+    private static List<Animal> Search(List<Animal> animals)
     {
-        if(animals.Count == 0) 
-            Console.WriteLine("Животных нет.");
+        if (animals.Count == 0)
+            return new List<Animal>();
         
-        foreach (var animal in animals)
-        {
-            Console.WriteLine(animal);
-        }
+        Console.WriteLine("Введите имеющююся информацию через пробел:");
+        
+        string str = Console.ReadLine() ?? "";
+
+        return (from animal in animals 
+            from s in str.ToLower().Split(" ") 
+            where animal.ToString().ToLower().Contains(s) select animal).ToList();
     }
 }
